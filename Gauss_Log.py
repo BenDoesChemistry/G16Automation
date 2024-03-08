@@ -105,7 +105,7 @@ class log_file:
                     "Hindered_Rotor": self.Hindered_Rotor,
                     "Number_of_Imaginary_Frequencies":self.Num_Imaginary_Frequencies,
                     "Frequencies": self.Frequencies,
-                    "BTW_Energie": self.BTW_Energy,
+                    "BTW_Energy": self.BTW_Energy,
                     "Number_of_Stationary_Points": self.Num_Statp,
                     "Zero-point correction":self.Thermal_Corrections["Zero-point correction"],
                     "Thermal correction to Energy":self.Thermal_Corrections["Thermal correction to Energy"],
