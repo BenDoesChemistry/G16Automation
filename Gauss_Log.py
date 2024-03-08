@@ -45,6 +45,20 @@ class log_file:
             if float(List[i]) < 0 :
                 self.Num_Imaginary_Frequencies = self.Num_Imaginary_Frequencies + 1
             self.Frequencies.append(float(List[i]))
+
+######################################################################################################################
+# Final_Checks
+# Ben_Payton
+# 2024-03-07
+# This function take a line from gaussian which contains Frequencies and adds them to the class frequency variable.
+######################################################################################################################
+
+    def Final_Checks(self):
+#       checks to see if the bottom of the well energies were found in the file. if it hasn't then it calculates it from the freq calculation thermo
+        if self.BTW_Energy == 0 and self.Thermal_Corrections["Sum of electronic and zero-point Energies"] != 0:
+            self.BTW_Energy = self.Thermal_Corrections["Sum of electronic and zero-point Energies"] - self.Thermal_Corrections["Zero-point correction"]
+
+
 ######################################################################################################################
 # __init__
 # This function is called when the class is implemented it is meant to assign all of the self. values. This is the 
@@ -90,6 +104,8 @@ class log_file:
                     self.Clean_Frequencies(lines[i])
                 if "Warning -- explicit consideration of" in lines[i]:
                     self.Hindered_Rotor =True
+
+        self.Final_Checks
 
 ######################################################################################################################
 # Output_Dict
