@@ -80,6 +80,30 @@ class log_file:
             i = i + 1
         return Final_Out.lower()
 
+######################################################################################################################
+# Check_Geom_Opt
+# Ben_Payton
+# 2024-03-11
+# This function checks if opt is in the input line. In the future it should also collect which keywords were used 
+# along with the the opt section.
+######################################################################################################################
+
+######################################################################################################################
+# Check_Freq
+# Ben_Payton
+# 2024-03-11
+# This function checks if freq is in the input line. In the future it should also collect which keywords were used 
+# along with the the opt section.
+######################################################################################################################
+
+######################################################################################################################
+# Check_Solvation
+# Ben_Payton
+# 2024-03-11
+# This function checks if there is solvation implementation in the input line. In the future it should also collect
+# which keywords were used along with the the opt section.
+######################################################################################################################
+
 
 ######################################################################################################################
 # __init__
