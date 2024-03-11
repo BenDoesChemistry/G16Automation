@@ -58,6 +58,28 @@ class log_file:
         if self.BTW_Energy == 0 and self.Thermal_Corrections["Sum of electronic and zero-point Energies"] != 0:
             self.BTW_Energy = self.Thermal_Corrections["Sum of electronic and zero-point Energies"] - self.Thermal_Corrections["Zero-point correction"]
 
+######################################################################################################################
+# Get_Input_Line
+# Ben_Payton
+# 2024-03-10
+# This function gets the input line out of the gaussian log file by starting at line 79 and going odwn until it finds
+# ----------
+# This indicates there is an input line, from there the function adds it to a string to be returned in full lowercase.
+######################################################################################################################
+    def Get_Input_Line(self,List):
+        i = 79
+        Final_Out = ""
+        while "------------" not in List[i]:
+            i = i + 1
+
+        i = i + 1
+
+        while "------------" not in List[i]:
+            Final_Out = Final_Out + List[i]
+
+            i = i + 1
+        return Final_Out.lower
+
 
 ######################################################################################################################
 # __init__
@@ -68,6 +90,7 @@ class log_file:
     def __init__(self,File_Name):
         
         self.File_Name = File_Name
+        self.Input_Line = ""
         self.Functional = ""
         self.Basis_Set = ""
         self.Geometry_Opt = False
@@ -89,6 +112,9 @@ class log_file:
         
         with open(self.File_Name) as file:
             lines = file.read().splitlines()
+
+            self.Input_Line = Get_Input_Line(lines)
+
             for i in range(len(lines)):
 # implementation of finding the BTW Energies               
                 if "\HF=" in lines[i]:
