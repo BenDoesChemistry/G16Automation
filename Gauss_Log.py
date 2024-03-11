@@ -78,7 +78,7 @@ class log_file:
             Final_Out = Final_Out + List[i]
 
             i = i + 1
-        return Final_Out.lower
+        return Final_Out.lower()
 
 
 ######################################################################################################################
@@ -113,7 +113,7 @@ class log_file:
         with open(self.File_Name) as file:
             lines = file.read().splitlines()
 
-            self.Input_Line = Get_Input_Line(lines)
+            self.Input_Line = self.Get_Input_Line(lines)
 
             for i in range(len(lines)):
 # implementation of finding the BTW Energies               
@@ -139,6 +139,7 @@ class log_file:
 ######################################################################################################################
     def Output_Dict(self):
         Out_Dict = {"File_Name":self.File_Name, 
+                    "Input_Line":self.Input_Line,
                     "Functional":self.Functional, 
                     "Basis_Set":self.Basis_Set,
                     "Geometry_Optimization":self.Geometry_Opt,
